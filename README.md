@@ -1,5 +1,5 @@
 Expectation Maximization: Responsibility Method and MCMC Method
 
-This project analyzes two different ways of doing Expectation Maximization (EM) and shows the pros and cons of each. The LaTeX file gives a brief overview of what EM is and the methods we'll be using, and then goes into the coding implementation of each method, analyzes the different methods, and provides a brief summary of the results we got.
+This project analyzes two different approaches to Expectation Maximization (EM) and highlights the advantages and disadvantages of each. The LaTeX file provides a brief overview of what EM is and the methods used, and then delves into the coding implementation of each method, analyzes the different methods, and offers a summary of the results obtained.
 
-Note: This is a work in progress project - please excuse minor mistakes, typos, etc. in the code and/or writeup.
+Note: This is a work-in-progress project - please excuse minor mistakes, typos, etc. in the code and/or writeup.
