@@ -38,3 +38,5 @@ My goal was to:
 This project demonstrated that while Monte Carlo approximations can stand in for the responsibility-based EM, they come at a computational cost and may not always yield better results. Still, having both methods implemented from scratch provides flexibility in handling a wide variety of mixture modeling problems.
 
 Note: This is a work-in-progress project - please excuse minor mistakes, typos, etc. in the code and/or writeup.
+
+This Readme was made with the help of ChatGPT-5.
