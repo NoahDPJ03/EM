@@ -1,6 +1,5 @@
 ## Expectation Maximization: Responsibility Method vs. MCMC Approximation
 
-**Situation**
 In statistical modeling, the Expectation Maximization (EM) algorithm is a key tool for estimating parameters of mixture models. However, when the *responsibility* values $P(z_i | x_i, \theta)$ are computationally expensive or analytically intractable, practitioners often turn to Monte Carlo (MC) approximations. I set out to implement and compare the **standard responsibility-based EM** with a **custom MCMC-based EM approximation**, evaluating their performance on mixtures of both continuous and discrete probability distributions.
 
 My goal was to:
