@@ -34,7 +34,7 @@ I would need to know that:
 ## Algorithm Steps
 
 1. **Initialization**  
-   - Set each mixture component weight \( \pi_j \) for distribution \( j \) to a value in \([0, 1]\)  
+   - Set each mixture component weight \( \pi_j \) for distribution \( j \) to a value in $$[0, 1]$$  
    - Ensure that all mixture weights sum to 1 (a probability distribution over distributions)  
    - Set initial parameters for each distribution.
 
@@ -92,7 +92,6 @@ Steps:
 - Compare results on datasets with known mixtures.
 - Analyze trade-offs in terms of accuracy and computational cost.
 
----
 # Methods
 
 To analyze these two EM methods, I first implemented them in Python and tested them with small, custom mixed datasets.  
@@ -108,8 +107,6 @@ The experiments involved:
 1. Implementing **both Standard EM** and **Monte Carlo EM**.
 2. Running them on known datasets to evaluate accuracy.
 3. Running them on random datasets to assess consistency and performance.
-
----
 
 # Implementation
 
@@ -170,8 +167,6 @@ This was done for both methods.
 - Calls **`update_pdfs`** to refresh the probability density functions with the updated parameters.
   - This step was **not** included in the MCMC EM implementation.
 
----
-
 # Analysis
 
 ## Example Dataset Analysis
@@ -220,8 +215,6 @@ I see that the differences are quite random — the graph doesn’t serve much m
 The code changed each of the EM and EMMC implementations from user-based input to computer-based, in which the inputs are randomly selected for each mix. I also made a new function called `give_data_with_distribs` (both continuous and discrete cases). This randomly selects the number of mixes, what each distribution is (depending on if it’s a continuous function or a discrete one), and creates the data for my random selection.
 
 The implementation uses the fact that I know what distributions are being generated. It also utilizes the random function for multiple decisions — whether I go discrete or not, the number of mixes I’m doing for a sample, etc.
-
----
 
 # Conclusion
 
