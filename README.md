@@ -1,8 +1,3 @@
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-
 # Expectation Maximization: Responsibility Method vs. MCMC Approximation
 
 - [Preview](#preview)
@@ -14,7 +9,7 @@
 
 # Preview
 
-<img src="loglikeconverge.png" alt="loglike1" width="200"> <img src="diffinpi.png" alt="diffpi" width="200"> 
+<img src="loglikeconverge.png" alt="loglike1" width="400"> <img src="diffinpi.png" alt="diffpi" width="400"> 
 
 # Intro
 
@@ -39,7 +34,7 @@ I would need to know that:
 ## Algorithm Steps
 
 1. **Initialization**  
-   - Set each mixture component weight $$ \pi_j $$ for distribution $$ j $$ to a value in $$[0, 1]$$  
+   - Set each mixture component weight $\pi_j$ for distribution $j$ to a value in $[0, 1]$  
    - Ensure that all mixture weights sum to 1 (a probability distribution over distributions)  
    - Set initial parameters for each distribution.
 
@@ -57,7 +52,7 @@ There are two main EM strategies:
 
 ### 1. Standard EM (Responsibility Method)
 
-Responsibilities $$ \gamma_{ij} $$ are the probabilities that data point $$ x_i $$ came from distribution $$ j $$:
+Responsibilities $\gamma_{ij}$ are the probabilities that data point $x_i$ came from distribution $j$:
 
 $$
 \gamma_{ij} = P(z_i = j \mid x_i, \theta) =
@@ -86,10 +81,10 @@ $$
 \alpha = \min\left( 1, \frac{\pi_{\text{new}} \cdot f_{\text{new}}(x)}{\pi_{z} \cdot f_{z}(x)} \right)
 $$
 
-3. After sampling, estimate \( \pi_j \) as:
+3. After sampling, estimate $\pi_j$ as:
 
 $$
-\pi_j = \frac{\text{# samples assigned to distribution } j}{\text{total # of samples}}
+\pi_j = \frac{\text{numb. samples assigned to distribution } j}{\text{total numb. of samples}}
 $$
 
 ## Goal
@@ -126,11 +121,11 @@ This version is **user input-based** — I specify:
 
 #### **`e_step_MCMC`**
 - Iterates over each data point.
-- Computes the probability weight for the current \( z \) (distribution assignment) by multiplying the mixture weight with the PDF value for that point.
+- Computes the probability weight for the current $z$ (distribution assignment) by multiplying the mixture weight with the PDF value for that point.
 - Runs for a set number of MCMC steps:
-  1. Picks a random \( z_{\text{new}} \) (new distribution).
-  2. Computes the acceptance ratio \( \alpha \).
-  3. Decides whether to transition to \( z_{\text{new}} \) based on \( \alpha \).
+  1. Picks a random $z_{\text{new}}$ (new distribution).
+  2. Computes the acceptance ratio $\alpha$.
+  3. Decides whether to transition to $z_{\text{new}}$ based on $\alpha$.
 - Stores each transition in a chain for that data point.
 
 #### **`m_step_MCMC`**
@@ -159,10 +154,10 @@ This was done for both methods.
 - Generates a list of **responsibilities**:
   - Each **row** represents a data point.
   - Each **column** corresponds to a distribution.
-- Each entry \(\gamma_{ij}\) is the probability that data point \(i\) belongs to distribution \(j\).
+- Each entry $\gamma_{ij}$ is the probability that data point $i$ belongs to distribution $j$.
 
 #### **`m_step`**
-- Updates mixture weights \(\pi_j\) by taking the **average responsibility** across all data points:
+- Updates mixture weights $\pi_j$ by taking the **average responsibility** across all data points:
 
 $$
 \pi_j = \frac{1}{n} \sum_{i=1}^n \gamma_{ij}
