@@ -22,7 +22,7 @@ For EM to work, I need to know:
 2. **What those distributions are**.
 
 ## Example
-Suppose I have a dataset \( H \) that is mixed with:
+Suppose I have a dataset, $H$, that is mixed with:
 - **Normal**
 - **Exponential**
 - **Uniform**  
@@ -34,7 +34,7 @@ I would need to know that:
 ## Algorithm Steps
 
 1. **Initialization**  
-   - Set each mixture component weight \( \pi_j \) for distribution \( j \) to a value in $$[0, 1]$$  
+   - Set each mixture component weight $$ \pi_j $$ for distribution $$ j $$ to a value in $$[0, 1]$$  
    - Ensure that all mixture weights sum to 1 (a probability distribution over distributions)  
    - Set initial parameters for each distribution.
 
@@ -52,7 +52,7 @@ There are two main EM strategies:
 
 ### 1. Standard EM (Responsibility Method)
 
-Responsibilities (\( \gamma_{ij} \)) are the probabilities that data point \( x_i \) came from distribution \( j \):
+Responsibilities $$ \gamma_{ij} $$ are the probabilities that data point $$ x_i $$ came from distribution $$ j $$:
 
 $$
 \gamma_{ij} = P(z_i = j \mid x_i, \theta) =
