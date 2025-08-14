@@ -54,16 +54,16 @@ There are two main EM strategies:
 
 Responsibilities (\( \gamma_{ij} \)) are the probabilities that data point \( x_i \) came from distribution \( j \):
 
-\[
+$$
 \gamma_{ij} = P(z_i = j \mid x_i, \theta) =
 \frac{\pi_j \cdot f_j(x_i)}{\sum_k \pi_k \cdot f_k(x_i)}
-\]
+$$
 
 **M-step update**:
 
-\[
+$$
 \pi_j = \frac{1}{n} \sum_{i=1}^n \gamma_{ij}
-\]
+$$
 
 Intuitively, if a data point has a high probability of belonging to a certain distribution,  
 that distribution’s weight increases.
@@ -77,15 +77,15 @@ Steps:
 1. For each data point, run a Monte Carlo Markov Chain (MCMC) for a fixed number of iterations.
 2. Use the **acceptance ratio** to decide whether to move to a new distribution:
 
-\[
+$$
 \alpha = \min\left( 1, \frac{\pi_{\text{new}} \cdot f_{\text{new}}(x)}{\pi_{z} \cdot f_{z}(x)} \right)
-\]
+$$
 
 3. After sampling, estimate \( \pi_j \) as:
 
-\[
+$$
 \pi_j = \frac{\text{# samples assigned to distribution } j}{\text{total # of samples}}
-\]
+$$
 
 ## Goal
 - Implement both methods.
@@ -133,9 +133,9 @@ This version is **user input-based** — I specify:
 - Counts how many samples are assigned to each distribution.
 - Updates mixture weights as:
 
-\[
+$$
 \pi_j = \frac{\text{count of samples in distribution } j}{\text{total samples}}
-\]
+$$
 
 - Includes a **`min_weight`** threshold of **0.05**:
   - Prevents any distribution’s weight from dropping to zero.
@@ -159,9 +159,9 @@ This was done for both methods.
 #### **`m_step`**
 - Updates mixture weights \(\pi_j\) by taking the **average responsibility** across all data points:
 
-\[
+$$
 \pi_j = \frac{1}{n} \sum_{i=1}^n \gamma_{ij}
-\]
+$$
 
 - Updates the parameters of each distribution.
 - Calls **`update_pdfs`** to refresh the probability density functions with the updated parameters.
@@ -229,5 +229,3 @@ From my analysis of the two EM approaches:
 
 **Takeaway:**  
 While Monte Carlo EM can be more computationally demanding and occasionally riskier, it is still a valid alternative when standard EM is not feasible.
-
----
