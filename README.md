@@ -9,7 +9,7 @@
 
 # Preview
 
-<img src="loglikeconverge.png" alt="loglike1" width="400"> <img src="diffinpi.png" alt="diffpi" width="400"> 
+<img src="loglikeconverge.png" alt="loglike1" width="400"> <img src="diffinpinew.png" alt="diffpi" width="400"> 
 
 # Intro
 
@@ -207,7 +207,7 @@ To further my investigation, I created a mixing function which allowed me to cre
 
 I repeated the generation of random mixes of different distributions for 20 times and then analyzed the differences in mixing weights that the 2 different methods found. This gave me a plot:
 
-<img src="diffinpi.png" alt="diffpi"> 
+<img src="diffinpinew.png" alt="diffpi"> 
 
 The graph shows the absolute differences in my finished mixing weights for each mixing I randomly selected.
 I see that the differences are quite random — the graph doesn’t serve much meaning, only as a look into what is happening under the hood.
